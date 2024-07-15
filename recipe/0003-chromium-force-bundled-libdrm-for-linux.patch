@@ -1,0 +1,25 @@
+From c39fbe89da09b4076fc9aa005bbd5e9df5bc70b3 Mon Sep 17 00:00:00 2001
+From: "Rafael G. Martins" <rafael@rafaelmartins.eng.br>
+Date: Mon, 15 Jul 2024 02:06:57 +0200
+Subject: [PATCH 3/3] chromium: force bundled libdrm for linux
+
+---
+ src/3rdparty/chromium/build/config/linux/libdrm/BUILD.gn | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/3rdparty/chromium/build/config/linux/libdrm/BUILD.gn b/src/3rdparty/chromium/build/config/linux/libdrm/BUILD.gn
+index 31ab0d8da..49fb0dccb 100644
+--- a/src/3rdparty/chromium/build/config/linux/libdrm/BUILD.gn
++++ b/src/3rdparty/chromium/build/config/linux/libdrm/BUILD.gn
+@@ -11,7 +11,7 @@ declare_args() {
+   # Controls whether the build should use the version of libdrm library shipped
+   # with the system. In release builds of desktop Linux and Chrome OS we use the
+   # system version. Some Chromecast devices use this as well.
+-  use_system_libdrm = is_chromeos_device || (is_linux && !is_castos)
++  use_system_libdrm = is_chromeos_device
+ }
+ 
+ if (use_system_libdrm) {
+-- 
+2.43.0
+
