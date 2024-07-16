@@ -1,0 +1,25 @@
+From 0541bc80866f0130fe6b574a7a0874fc10d6abaa Mon Sep 17 00:00:00 2001
+From: Rafael Martins <rmartins@anaconda.com>
+Date: Tue, 16 Jul 2024 23:11:48 +0200
+Subject: [PATCH 6/6] chromium: added missing headers
+
+---
+ .../chromium/ui/events/gesture_detection/motion_event_generic.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/3rdparty/chromium/ui/events/gesture_detection/motion_event_generic.h b/src/3rdparty/chromium/ui/events/gesture_detection/motion_event_generic.h
+index 5460f7f8a..e7688b4d4 100644
+--- a/src/3rdparty/chromium/ui/events/gesture_detection/motion_event_generic.h
++++ b/src/3rdparty/chromium/ui/events/gesture_detection/motion_event_generic.h
+@@ -7,6 +7,8 @@
+ 
+ #include <stddef.h>
+ #include <stdint.h>
++#include <vector>
++#include <memory>
+ 
+ #include "base/time/time.h"
+ #include "third_party/abseil-cpp/absl/container/inlined_vector.h"
+-- 
+2.39.2 (Apple Git-143)
+
