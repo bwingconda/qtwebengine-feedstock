@@ -16,6 +16,7 @@ source:
       - patches/0004-chromium-force-settings-to-build-without-xcode.patch
       - patches/0005-chromium-avoid-using-macos-12-13-14-symbols.patch
       - patches/0006-chromium-added-missing-headers.patch
+      - patches/0007-chromium-disable-glib-usage-for-linux-aarch64.patch
 
 build:
   number: 0

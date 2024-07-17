@@ -6,6 +6,7 @@ if [[ "${target_platform}" == linux-* ]]; then
   CMAKE_ARGS="
     ${CMAKE_ARGS}
     -DQT_FEATURE_webengine_ozone_x11=ON
+    -DQT_FEATURE_webengine_system_alsa=ON
     -DALSA_FOUND=1
     -DALSA_INCLUDE_DIRS=${BUILD_PREFIX}/${HOST}/sysroot/usr/include/alsa
     -DALSA_LDFLAGS=${BUILD_PREFIX}/${HOST}/sysroot/usr/lib64;-lasound
@@ -55,7 +56,6 @@ cmake -S"${SRC_DIR}/${PKG_NAME}" -Bbuild -GNinja ${CMAKE_ARGS} \
   -DQT_FEATURE_webengine_qt_libjpeg=OFF \
   -DQT_FEATURE_webengine_qt_libpng=OFF \
   -DQT_FEATURE_webengine_qt_zlib=OFF \
-  -DQT_FEATURE_webengine_system_alsa=ON \
   -DQT_FEATURE_webengine_system_ffmpeg=OFF \
   -DQT_FEATURE_webengine_system_freetype=OFF \
   -DQT_FEATURE_webengine_system_gbm=OFF \
