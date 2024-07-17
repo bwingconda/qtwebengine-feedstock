@@ -19,7 +19,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [ppc64le or s390x or not (linux and aarch64)]
+  skip: True  # [ppc64le or s390x]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
   ignore_run_exports:
@@ -76,7 +76,6 @@ requirements:
     - m2-bison    # [win]
     - m2-flex     # [win]
     - m2-gperf    # [win]
-    - pcre        # [linux and aarch64]
     - cmake
     - ninja
     - perl

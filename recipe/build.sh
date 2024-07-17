@@ -59,7 +59,7 @@ cmake -S"${SRC_DIR}/${PKG_NAME}" -Bbuild -GNinja ${CMAKE_ARGS} \
   -DQT_FEATURE_webengine_system_ffmpeg=OFF \
   -DQT_FEATURE_webengine_system_freetype=OFF \
   -DQT_FEATURE_webengine_system_gbm=OFF \
-  -DQT_FEATURE_webengine_system_glib=ON \
+  -DQT_FEATURE_webengine_system_glib=OFF \
   -DQT_FEATURE_webengine_system_harfbuzz=OFF \
   -DQT_FEATURE_webengine_system_icu=ON \
   -DQT_FEATURE_webengine_system_libevent=OFF \
