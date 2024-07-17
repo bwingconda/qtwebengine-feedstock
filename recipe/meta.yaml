@@ -76,6 +76,7 @@ requirements:
     - m2-bison    # [win]
     - m2-flex     # [win]
     - m2-gperf    # [win]
+    - libpcre     # [linux and aarch64]
     - cmake
     - ninja
     - perl

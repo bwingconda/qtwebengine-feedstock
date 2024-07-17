@@ -1,21 +1,22 @@
-From deed84c7e0d4b4c572a7cbe7497222701b3d8ca9 Mon Sep 17 00:00:00 2001
+From 551e64048a849e90f00eb07eb2ee7b7ba1342bf4 Mon Sep 17 00:00:00 2001
 From: Rafael Martins <rmartins@anaconda.com>
 Date: Tue, 16 Jul 2024 23:11:48 +0200
 Subject: [PATCH 6/6] chromium: added missing headers
 
 ---
- .../seccomp-bpf-helpers/syscall_parameters_restrictions.cc      | 1 +
+ .../seccomp-bpf-helpers/syscall_parameters_restrictions.cc      | 2 +-
  .../chromium/ui/events/gesture_detection/motion_event_generic.h | 2 ++
- 2 files changed, 3 insertions(+)
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/src/3rdparty/chromium/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc b/src/3rdparty/chromium/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc
-index ba995ace6..11ec2cfe5 100644
+index ba995ace6..bc472162e 100644
 --- a/src/3rdparty/chromium/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc
 +++ b/src/3rdparty/chromium/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc
-@@ -6,6 +6,7 @@
+@@ -5,7 +5,7 @@
+ #include "sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.h"
  
  #include <errno.h>
- #include <fcntl.h>
+-#include <fcntl.h>
 +#include <linux/fcntl.h>
  #include <linux/net.h>
  #include <sched.h>
