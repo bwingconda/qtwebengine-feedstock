@@ -1,4 +1,4 @@
-From 93e67fb426adcc342184d95c998c1834b70c60ef Mon Sep 17 00:00:00 2001
+From afc8c4948fcaaaea65e3e5291d3b06843f7ba1f0 Mon Sep 17 00:00:00 2001
 From: Rafael Martins <rmartins@anaconda.com>
 Date: Tue, 16 Jul 2024 23:11:22 +0200
 Subject: [PATCH 4/6] chromium: force settings to build without xcode.
@@ -56,7 +56,7 @@ index dbf435f5d..422c767f6 100644
  } else {
    mac_sdk_version = mac_sdk_official_version
 diff --git a/src/3rdparty/chromium/build/toolchain/apple/toolchain.gni b/src/3rdparty/chromium/build/toolchain/apple/toolchain.gni
-index c3560cc86..51a939ecd 100644
+index c3560cc86..5dbdae1d2 100644
 --- a/src/3rdparty/chromium/build/toolchain/apple/toolchain.gni
 +++ b/src/3rdparty/chromium/build/toolchain/apple/toolchain.gni
 @@ -157,8 +157,8 @@ template("single_apple_toolchain") {
@@ -65,8 +65,8 @@ index c3560cc86..51a939ecd 100644
      prefix = rebase_path("$clang_base_path/bin/", root_build_dir)
 -    _cc = "${prefix}clang"
 -    _cxx = "${prefix}clang++"
-+    _cc = prefix + getenv("HOST") + "-clang"
-+    _cxx = prefix + getenv("HOST") + "-clang++"
++    _cc = getenv("BUILD_PREFIX") + "/bin/" + getenv("HOST") + "-clang"
++    _cxx = getenv("BUILD_PREFIX") + "/bin/" + getenv("HOST") + "-clang++"
  
      swiftmodule_switch = "-Wl,-add_ast_path,"
  
