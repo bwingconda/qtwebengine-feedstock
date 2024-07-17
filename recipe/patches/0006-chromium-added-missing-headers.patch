@@ -1,12 +1,25 @@
-From 0541bc80866f0130fe6b574a7a0874fc10d6abaa Mon Sep 17 00:00:00 2001
+From deed84c7e0d4b4c572a7cbe7497222701b3d8ca9 Mon Sep 17 00:00:00 2001
 From: Rafael Martins <rmartins@anaconda.com>
 Date: Tue, 16 Jul 2024 23:11:48 +0200
 Subject: [PATCH 6/6] chromium: added missing headers
 
 ---
+ .../seccomp-bpf-helpers/syscall_parameters_restrictions.cc      | 1 +
  .../chromium/ui/events/gesture_detection/motion_event_generic.h | 2 ++
- 1 file changed, 2 insertions(+)
+ 2 files changed, 3 insertions(+)
 
+diff --git a/src/3rdparty/chromium/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc b/src/3rdparty/chromium/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc
+index ba995ace6..11ec2cfe5 100644
+--- a/src/3rdparty/chromium/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc
++++ b/src/3rdparty/chromium/sandbox/linux/seccomp-bpf-helpers/syscall_parameters_restrictions.cc
+@@ -6,6 +6,7 @@
+ 
+ #include <errno.h>
+ #include <fcntl.h>
++#include <linux/fcntl.h>
+ #include <linux/net.h>
+ #include <sched.h>
+ #include <signal.h>
 diff --git a/src/3rdparty/chromium/ui/events/gesture_detection/motion_event_generic.h b/src/3rdparty/chromium/ui/events/gesture_detection/motion_event_generic.h
 index 5460f7f8a..e7688b4d4 100644
 --- a/src/3rdparty/chromium/ui/events/gesture_detection/motion_event_generic.h
