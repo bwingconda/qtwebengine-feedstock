@@ -92,6 +92,8 @@ requirements:
     - minizip   # [unix]
     - libxml2   # [unix]
     - libxslt   # [unix]
+    - libopus   # [unix]
+    - minizip   # [unix]
     - html5lib
     - poppler
 
