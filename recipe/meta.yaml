@@ -22,6 +22,8 @@ build:
   skip: True  # [ppc64le or s390x]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
+  ignore_run_exports:
+    - dbus    # [unix]
 
 requirements:
   build:
@@ -84,16 +86,14 @@ requirements:
     - qtdeclarative {{ version }}
     - qtwebchannel {{ version }}
     - qttools {{ version }}
-    - nss
-    - nspr
-    - dbus
+    - nss       # [linux]
+    - nspr      # [linux]
+    - dbus      # [unix]
+    - minizip   # [unix]
+    - libxml2   # [unix]
+    - libxslt   # [unix]
     - html5lib
-    - snappy
-    - minizip
-    - libxml2
-    - libopus
     - poppler
-    - libxslt
 
   run_constrained:
     - qt-main >={{ version }},<7
@@ -101,7 +101,7 @@ requirements:
 
 test:
   commands:
-    {% for each_qt_lib in ["Pdf", "PdfWidgets", "WebEngine", "WebEngineCore", "WebEngineWidgets"] %}
+    {% for each_qt_lib in ["Pdf", "PdfQuick", "PdfWidgets", "WebEngineCore", "WebEngineQuick", "WebEngineWidgets"] %}
     - test -d $PREFIX/include/qt6/Qt{{ each_qt_lib }}                           # [unix]
     - test -f $PREFIX/lib/libQt6{{ each_qt_lib }}${SHLIB_EXT}                   # [unix]
     - if not exist %PREFIX%\\Library\\include\\qt6\\Qt{{ each_qt_lib }} exit 1  # [win]
