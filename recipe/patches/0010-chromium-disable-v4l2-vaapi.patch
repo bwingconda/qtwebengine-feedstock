@@ -1,0 +1,51 @@
+From f5ca303dc09d1d416e818c056356baf2bf26c5fc Mon Sep 17 00:00:00 2001
+From: Charles Bousseau <cbousseau@anaconda.com>
+Date: Tue, 30 Jul 2024 14:55:23 -0400
+Subject: [PATCH] chromium: disable V4L and VAAPI
+
+---
+ chromium/media/gpu/BUILD.gn | 4 ++--
+ chromium/media/gpu/args.gni | 6 ++----
+ 2 files changed, 4 insertions(+), 6 deletions(-)
+
+diff --git a/src/3rdparty/chromium/media/gpu/BUILD.gn b/src/3rdparty/chromium/media/gpu/BUILD.gn
+index 9a36b156c73..180746f4db6 100644
+--- a/src/3rdparty/chromium/media/gpu/BUILD.gn
++++ b/src/3rdparty/chromium/media/gpu/BUILD.gn
+@@ -17,9 +17,9 @@ buildflag_header("buildflags") {
+   header = "buildflags.h"
+ 
+   flags = [
+-    "USE_VAAPI=$use_vaapi",
++    "USE_VAAPI=false",
+     "USE_VAAPI_IMAGE_CODECS=$use_vaapi_image_codecs",
+-    "USE_V4L2_CODEC=$use_v4l2_codec",
++    "USE_V4L2_CODEC=false",
+     "USE_LIBV4L2=$use_v4lplugin",
+     "USE_VAAPI_X11=$use_vaapi_x11",
+   ]
+diff --git a/src/3rdparty/chromium/media/gpu/args.gni b/src/3rdparty/chromium/media/gpu/args.gni
+index 6a3dcef82e8..0f0ec4ad517 100644
+--- a/src/3rdparty/chromium/media/gpu/args.gni
++++ b/src/3rdparty/chromium/media/gpu/args.gni
+@@ -18,15 +18,13 @@ declare_args() {
+ 
+   # Indicates if Video4Linux2 codec is used. This is used for all CrOS
+   # platforms which have v4l2 hardware encoder / decoder.
+-  use_v4l2_codec =
+-      is_chromeos_lacros && (target_cpu == "arm" || target_cpu == "arm64")
++  use_v4l2_codec = false
+ 
+   # Indicates if VA-API-based hardware acceleration is to be used. This
+   # is typically the case on x86-based ChromeOS devices.
+   # VA-API should also be compiled by default on x11-using linux devices
+   # using x86/x64.
+-  use_vaapi = use_vaapi_x11 || (is_chromeos_lacros &&
+-                                (target_cpu == "x86" || target_cpu == "x64"))
++  use_vaapi = false
+ 
+   # Indicates if ChromeOS protected media support exists. This is used
+   # to enable the CDM daemon in Chrome OS as well as support for
+-- 
+2.39.3 (Apple Git-146)
+
