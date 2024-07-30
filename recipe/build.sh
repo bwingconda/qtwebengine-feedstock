@@ -5,7 +5,7 @@ set -ex
 if [[ "${target_platform}" == linux-* ]]; then
   CMAKE_ARGS="
     ${CMAKE_ARGS}
-    -DQT_FEATURE_webengine_ozone_x11=ON
+    -DQT_FEATURE_webengine_ozone_x11=OFF
     -DQT_FEATURE_webengine_system_alsa=ON
     -DALSA_FOUND=1
     -DALSA_INCLUDE_DIRS=${BUILD_PREFIX}/${HOST}/sysroot/usr/include/alsa

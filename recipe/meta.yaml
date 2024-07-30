@@ -22,6 +22,7 @@ source:
 build:
   number: 0
   skip: True  # [ppc64le or s390x]
+  skip: True  # [not linux]
   run_exports:
     - {{ pin_subpackage(name, max_pin='x.x') }}
   ignore_run_exports:
